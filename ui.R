@@ -1,11 +1,4 @@
 
-#  ------------------------------------------------------------------------
-#
-# Title : Memory Hex - UI
-#    By : dreamRs
-#  Date : 2019-02-06
-#    
-#  ------------------------------------------------------------------------
 
 library("shiny")
 
@@ -19,8 +12,9 @@ fluidPage(
   
   tags$div(
     class = "title-app",
-    tags$h1("Hex memory game"),
-    tags$h4("Find matching hex!")
+    tags$h1("Face memory game"),
+    tags$h4("Find matching faces!"),
+    tags$h4("Test your memory power")
   ),
   tags$br(),
   

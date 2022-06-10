@@ -1,12 +1,4 @@
 
-#  ------------------------------------------------------------------------
-#
-# Title : Memory Hex - Server
-#    By : dreamRs
-#  Date : 2019-02-06
-#    
-#  ------------------------------------------------------------------------
-
 library("shiny")
 
 function(input, output, session) {
@@ -25,14 +17,8 @@ function(input, output, session) {
   lapply(
     X = seq_len(n_hex * 2),
     FUN = function(x) {
-      results_mods[[paste0("module", x)]] <- callModule(
-        module = hex,
-        id = paste0("module", x),
-        hex_logo = hex_png[x],
-        reset = reset,
-        block = block
-      )
-    }
+      results_mods[[paste0("module", x)]] <- callModule(module = hex,id = paste0("module", x),hex_logo = hex_png[x],reset = reset,block = block) 
+      }
   )
   
   observe({
@@ -55,14 +41,13 @@ function(input, output, session) {
         ui = tags$div(
           style = "font-size: 160%; font-weight: bold;",
           sample(
-            x = c("Well done!", "Bravo!", "Great!", "Good job!", 
-                  "Amazing!", "That's a match!", "Hooray!"),
+            x = c("Well done!", "Bravo!", "Great!", 
+                  "Amazing!", "That's a match!"),
             size = 1
           )
         ), type = "message"
       )
-    }
-  })
+    }  })
   
   observeEvent(results_mods_parse$show3, {
     reset$x <- which_hex(
@@ -87,20 +72,26 @@ function(input, output, session) {
             "Well done !",
             tags$span(icon("trophy"), style = "color: #F7E32F;")
           ),
-          tags$h4("You've found all matching hex in"),
+          tags$h4("You've found all matching faces in"),
           tags$h1(isolate(timer()), "seconds!"),
-          tags$br(), tags$br(),
-          tags$a(
-            href = glue(shareurl, time = isolate(timer())),
-            icon("twitter"), "Tweet your score !", 
-            class = "btn btn-info btn-lg"
-          ),
-          tags$br(), tags$br(),
-          
-          tags$p("This app is our submission for the",
-                 tags$a(href = "https://community.rstudio.com/t/shiny-contest-submission-hex-memory-game/25336", "Shiny contest !")),
-          
-          tags$br(), tags$br(),
+          tags$br(),
+          if (isolate(timer()) < 70){
+            style = "font-weight: bold,font-family:verdana; "
+            tags$h4("You are a Genius because you have phenomenal memory power!")
+          }
+          else if (isolate(timer()) < 100){
+            style = "font-weight: bold,font-family:verdana ; "
+            tags$h4("You have a great memory power..Keep it up")
+          }
+          else if (isolate(timer()) < 120){
+            style = "font-weight: bold,font-family:verdana; "
+            tags$h4(" You have a good memory power..Practice more to improve your memory power")
+          }
+          else {
+            style = "font-weight: bold ,font-family:verdana; "
+            tags$h4("Play this Face Game Memory frequently to improve your memory power ")
+          },
+
           actionButton(
             inputId = "reload",
             label = "Play again !",

@@ -69,27 +69,28 @@ function(input, output, session) {
           style = "text-align: center;",
           tags$h2(
             tags$span(icon("trophy"), style = "color: #F7E32F;"),
-            "Well done !",
+            "Well done!",
             tags$span(icon("trophy"), style = "color: #F7E32F;")
           ),
-          tags$h4("You've found all matching faces in"),
+          tags$br(),
+          tags$h5("You've found all matching faces in"),
           tags$h1(isolate(timer()), "seconds!"),
           tags$br(),
           if (isolate(timer()) < 70){
             style = "font-weight: bold,font-family:verdana; "
-            tags$h4("You are a Genius because you have phenomenal memory power!")
+            tags$h5("You are a Genius because you have phenomenal memory power!")
           }
           else if (isolate(timer()) < 100){
             style = "font-weight: bold,font-family:verdana ; "
-            tags$h4("You have a great memory power..Keep it up")
+            tags$h5("You have great memory power. Keep it up!")
           }
           else if (isolate(timer()) < 120){
             style = "font-weight: bold,font-family:verdana; "
-            tags$h4(" You have a good memory power..Practice more to improve your memory power")
+            tags$h5("You have good memory power. Practice more to improve your memory power")
           }
           else {
             style = "font-weight: bold ,font-family:verdana; "
-            tags$h4("Play this Face Game Memory frequently to improve your memory power ")
+            tags$h5("Play this Face Memory Game more frequently to improve your memory power")
           },
 
           actionButton(

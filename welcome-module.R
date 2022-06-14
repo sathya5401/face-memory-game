@@ -8,14 +8,21 @@ welcome_UI <- function(id) {
   modalDialog(
     title = tags$h1(
       style = "text-align: center;",
-      "Welcome to Face memory game !"
+      "Face Memory Game"
     ),
-    tags$div(
-      style = "text-align: center;",
-      tags$p("Human memory is often likened to that of a computer memory system or a filing cabinet. But in fact, memory is far from perfect - most people do not remember every single thing that has happened to them, and memories are often changed and can become distorted."),
-      tags$p("Memory strength is just like muscular strength. The more you use it, the stronger it gets. But you can't lift the same size weight every day and expect to get stronger. You'll need to keep your brain constantly challenged."),
-      tags$p("This simple face memory game not only improves your ability to remember faces, but really teaches you to pay attention to detail. After all, you can't remember something if you never fully noticed it in the first place."),
-      tags$p("This Face Memory Games give space to critical thinking and that helps children nurture their attention to detail. Memory games can improve visual recognition. With many memory games based on spotting differences, or linking two related images, children improve their visual discrimination.")
+
+    
+    tags$div(tags$h3(style = "text-align: justify;", "About")),
+    
+    tags$ul(
+      style = "text-align: justify;",
+      tags$li("Human memory is often likened to that of a computer memory system or a filing cabinet. But in fact, memory is far from perfect - most people do not remember every single thing that has happened to them, and memories are often changed and can become distorted."),
+      tags$br(),
+      tags$li("Memory strength is just like muscular strength. The more you use it, the stronger it gets. But you can't lift the same size weight every day and expect to get stronger. You'll need to keep your brain constantly challenged."),
+      tags$br(),
+      tags$li("This simple face memory game not only improves your ability to remember faces, but really teaches you to pay attention to detail. After all, you can't remember something if you never fully noticed it in the first place."),
+      tags$br(),
+      tags$li("This game enables critical thinking and that helps children nurture their attention to detail. Memory games can improve visual recognition. With many memory games based on spotting differences, or linking two related images, children improve their visual discrimination.")
     ), 
     footer = actionButton(
       inputId = ns("play"),
@@ -33,13 +40,13 @@ welcome <- function(input, output, session) {
   
   observeEvent(input$play,{
    showModal(modalDialog(
-     tags$div(
-       style = "text-align: center;",
-       tags$p("Find all matching faces as soon as possible!"),
-       tags$p("Click on an hex to return it"),
-       tags$p("You can see only two faces at the same time"),
-       tags$p("When you're ready, click button below to play !"),
-       tags$p("Do test your memory power!")
+     tags$div(tags$h3(style = "text-align: justify;", "Instructions:"), tags$br(),),
+     tags$ol(
+       style = "text-align: justified;",
+       tags$li("Find all matching faces as soon as possible."),
+       tags$li("Click on a face to reveal it."),
+       tags$li("You can only have two faces revealed at the same time."),
+       tags$li("When you're ready, click the button below to play."),
      )
    ))
   })

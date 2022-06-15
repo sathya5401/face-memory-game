@@ -72,7 +72,8 @@ function(input, output, session) {
           tags$h2(
             tags$span(icon("trophy"), style = "color: #F7E32F;"),
             "Well done!",
-            tags$span(icon("trophy"), style = "color: #F7E32F;")
+            tags$span(icon("trophy"), style = "color: #F7E32F;"),
+              textOutput("myname"),
           ),
           tags$br(),
           tags$h5("You've found all matching faces in"),

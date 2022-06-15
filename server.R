@@ -2,6 +2,8 @@
 library("shiny")
 
 function(input, output, session) {
+   output$myname <- renderText({
+    paste("Victory Belongs to you ",input$nama)})
   
   start <- callModule(module = welcome, id = "welcome")
   timer <- callModule(module = time, id = "timer", start = start)

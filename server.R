@@ -95,6 +95,15 @@ function(input, output, session) {
             style = "font-weight: bold ,font-family:verdana; "
             tags$h5("Play this Face Memory Game more frequently to improve your memory power")
           },
+          
+          if (isolate(timer()) < input$timeLimit){
+            style = "font-weight: bold,font-family:verdana; "
+            tags$h5("You completed it within the time limit!")
+          }
+          else{
+            style = "font-weight: bold ,font-family:verdana; "
+            tags$h5("You didn't complete it within the time limit. Set a lower time limit next time.")
+          },
 
           actionButton(
             inputId = "reload",

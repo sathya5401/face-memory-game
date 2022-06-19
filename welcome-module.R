@@ -12,8 +12,10 @@ welcome_UI <- function(id) {
     ),
 
     setBackgroundImage(src = "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb", shinydashboard = FALSE),
-    tags$div(tags$h4(style = "text-align: justify;", "About:"),
-                         textInput("nama","Enter Name",""),
+    tags$div(tags$h4(textInput("nama","Enter Name:",""), sliderInput("timeLimit", "Time limit:",
+                                                                     min = 0, max = 100,
+                                                                     value = 70), style = "text-align: justify;", "About:"),
+                         
             ),
     
     tags$ul(

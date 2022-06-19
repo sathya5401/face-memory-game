@@ -13,4 +13,4 @@ shiny::runGitHub(repo = "dreamRs/memory-hex")
 
 
 
-![](imgs/memory-hex.png)
+![](imgs/https://github.com/sathya5401/face-memory-game/blob/master/face%20interafce.png)
